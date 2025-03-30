@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tears of a Saint – Dreamville Drop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #f4f1ec;
+      color: #222;
+    }
+    .hero {
+      background: url('your-hero-image.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 4px black;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 1em;
+    }
+    .btn {
+      padding: 12px 24px;
+      background: black;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+    .product-preview img {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 12px;
+    }
+    .countdown {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #b34343;
+    }
+    input[type="email"] {
+      padding: 10px;
+      width: 300px;
+      max-width: 90%;
+      margin-top: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    footer {
+      padding: 30px;
+      text-align: center;
+      background: #222;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>Welcome to Dreamville</h1>
+    <p>Limited Release — Ships April 4th</p>
+    <div class="countdown" id="countdown">Loading countdown...</div>
+    <a href="https://tearsofasaint.myshopify.com" class="btn">Shop the Drop</a>
+  </section>
+
+  <section class="section product-preview">
+    <h2>Featured Products</h2>
+    <img src="dreamville-shirt.jpg" alt="Welcome to Dreamville Shirt" />
+    <img src="numero-uno.jpg" alt="Numero Uno Shirt" />
+    <p>$60 — Limited Stock: Only 25 per size</p>
+  </section>
+
+  <section class="section">
+    <h2>Our Story</h2>
+    <p>Tears of a Saint is more than clothing — it’s a movement born from pain, purpose, and passion. Designed for the dreamers, the broken, the bold.</p>
+  </section>
+
+  <section class="section">
+    <h2>Stay in the Loop</h2>
+    <input type="email" placeholder="Enter your email" />
+    <button>Subscribe</button>
+  </section>
+
+  <footer>
+    Follow us @tearsofasaint  
+    <br>
+    &copy; 2025 Tears of a Saint. All rights reserved.
+  </footer>
+
+  <script>
+    const countdown = document.getElementById("countdown");
+    const targetDate = new Date("April 4, 2025 00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        countdown.innerHTML = "The drop is live!";
+      } else {
+        countdown.innerHTML = `Drop ends in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
